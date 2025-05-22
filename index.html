@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кыргыз Спорт</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Шапка -->
+  <header>
+    <div class="container">
+      <div class="logo-container">
+        <img src="https://i.pinimg.com/236x/7f/89/65/7f8965dfb522488918d98ec810046e92.jpg" alt="Логотип" class="logo">
+        <h1><span>Кыргыз</span> Спорт</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home"><i class="fas fa-home"></i> Главная</a></li>
+          <li><a href="#products"><i class="fas fa-tshirt"></i> Товары</a></li>
+          <li><a href="#about"><i class="fas fa-info-circle"></i> О нас</a></li>
+          <li><a href="#contacts"><i class="fas fa-phone-alt"></i> Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Главная секция -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h2>Добро пожаловать в наш магазин!</h2>
+      <p>Одежда с кыргызскими орнаментами для активного образа жизни</p>
+      <a href="#products" class="btn">Смотреть товары</a>
+    </div>
+  </section>
+
+  <!-- Секция товаров -->
+  <section id="products" class="products">
+    <div class="container">
+      <h2 class="section-title">Наши товары</h2>
+      <div class="products-grid" id="productsGrid">
+        <!-- Товары будут добавлены через JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция "О нас" -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">О нашем магазине</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Спорт начинается с правильной экипировки!
+Одежда для тренировок, активного отдыха и повседневного комфорта.
+🔹 Стильный дизайн
+🔹 Качественные материалы
+🔹 Идеальная посадка
+💥 Готов к новым победам? Начни с формы!
+          <ul class="features">
+            <li><i class="fas fa-check"></i> Качественные материалы</li>
+            <li><i class="fas fa-check"></i> Уникальный дизайн</li>
+            <li><i class="fas fa-check"></i> Быстрая доставка</li>
+          </ul>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="О нас">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция контактов -->
+  <section id="contacts" class="contacts">
+    <div class="container">
+      <h2 class="section-title">Контакты</h2>
+      <div class="contacts-content">
+        <div class="contact-info">
+          <h3>Свяжитесь с нами</h3>
+          <p><i class="fas fa-map-marker-alt"></i> г. Бишкек, ул. Манаса 34</p>
+          <p><i class="fas fa-phone"></i> +996 778 635 863</p>
+          <p><i class="fas fa-envelope"></i> kyrgyz.sport@gmail.com</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="https://api.whatsapp.com/send/?phone=%2B996778635863&text&type=phone_number&app_absent=0"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="contact-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.191816403367!2d74.6077343154662!3d42.87138197915595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389eb7d3b6f3f4c5%3A0x2f5a5a1a5a5a5a5a!2z0JHQuNGI0LrQtdC6!5e0!3m2!1sru!2skg!4v1620000000000!5m2!1sru!2skg" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Корзина -->
+  <div class="cart" onclick="toggleCart()">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count">0</span>
+  </div>
+  <div class="cart-popup" id="cartPopup">
+    <div class="cart-container">
+      <span class="close-btn" onclick="closeCart()">×</span>
+      <h2>Ваша корзина</h2>
+      <div class="promo-banner">
+        <i class="fas fa-gift"></i> 20% скидка на все товары!
+      </div>
+      <div id="cart-items"></div>
+      <div class="cart-total">
+        <div class="total-row">
+          <span>Сумма:</span>
+          <span id="total-price">0</span> сом
+        </div>
+        <div class="total-row discount">
+          <span>Скидка:</span>
+          <span id="discount-amount">0</span> сом
+        </div>
+        <div class="total-row final">
+          <span>Итого:</span>
+          <span id="final-price">0</span> сом
+        </div>
+        <button class="btn checkout-btn" onclick="checkout()">Оформить заказ</button>
+        <button class="btn clear-btn" onclick="clearCart()">Очистить корзину</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно заказа -->
+  <div class="modal" id="orderModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">×</span>
+      <h2>Оформление заказа</h2>
+      <form id="orderForm">
+        <div class="form-group">
+          <label for="name">ФИО:</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Телефон:</label>
+          <input type="tel" id="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Адрес доставки:</label>
+          <textarea id="address" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Способ оплаты:</label>
+          <div class="payment-methods">
+            <label><input type="radio" name="payment" value="cash" checked> Наличными при получении</label>
+            <label><input type="radio" name="payment" value="card"> Оплата картой</label>
+          </div>
+        </div>
+        <button type="button" class="btn submit-btn" onclick="submitOrder()">Подтвердить заказ</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Уведомление -->
+  <div class="notification" id="notification"></div>
+
+  <!-- Футер -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="https://i.pinimg.com/236x/7f/89/65/7f8965dfb522488918d98ec810046e92.jpg" alt="Логотип">
+          <h3>Кыргыз Спорт</h3>
+        </div>
+        <div class="footer-links">
+          <h4>Меню</h4>
+          <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#products">Товары</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="footer-contacts">
+          <h4>Контакты</h4>
+          <p><i class="fas fa-phone"></i> +996 778 635 863</p>
+          <p><i class="fas fa-envelope"></i> kyrgyz.sport@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Кыргыз Спорт. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="code.js"></script>
+</body>
+</html>
